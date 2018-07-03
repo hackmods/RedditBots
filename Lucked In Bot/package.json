@@ -1,0 +1,11 @@
+{
+  "name": "redditbot",
+  "version": "1.0.0",
+  "description": "A trail bot correcting lucked out to in!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "hackmods",
+  "license": "ISC"
+}
