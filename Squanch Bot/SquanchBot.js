@@ -20,7 +20,7 @@ const client = new Snoostorm(r);
 const streamOpts = {
     subreddit: 'rickandmorty',
     results: 100,
-    pollTime: 2500  
+    pollTime: 60000  
 };
 
 // Create a Snoostorm CommentStream with the specified options
