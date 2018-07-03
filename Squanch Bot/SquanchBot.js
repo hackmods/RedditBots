@@ -18,7 +18,7 @@ const client = new Snoostorm(r);
 
 // Configure options for stream: subreddit & results per query
 const streamOpts = {
-    subreddit: 'all',
+    subreddit: 'rickandmorty',
     results: 100,
     pollTime: 2500  
 };
@@ -28,16 +28,20 @@ const comments = client.CommentStream(streamOpts);
 
 // On comment, perform whatever logic you want to do
 comments.on('comment', (comment) => {
-console.log(comment);
+//console.log(comment);
+//console.log(Squanch(comment.body));
 
-if  (isSubstring(comment.body,'squanch'))
+//author: RedditUser { name: 'Smash_Palace' },
+//console.log(comment.author);
+
+if  (comment.author === "RedditUser { name: '" + process.env.REDDIT_USER +"' }")
 {
     console.log('self trigger!');
 }
 else{
     if (isSubstring(comment.body,'squanch'))
     {
-        comment.reply(Squanch(comment.body));
+        comment.reply(Squanch(comment.body) + '  -  Squanch Bot');
         ReplyCount++;
         console.log(comment.body);
     }
