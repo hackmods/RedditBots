@@ -15,7 +15,7 @@ const r = new Snoowrap({
     password: process.env.REDDIT_PASS
 });
 const client = new Snoostorm(r);
-
+const botID = "RedditUser { name: '" + process.env.REDDIT_USER +"' }";
 // Configure options for stream: subreddit & results per query
 const streamOpts = {
     subreddit: 'rickandmorty',
@@ -34,7 +34,8 @@ comments.on('comment', (comment) => {
 //author: RedditUser { name: 'Smash_Palace' },
 //console.log(comment.author);
 
-if  (comment.author === "RedditUser { name: '" + process.env.REDDIT_USER +"' }")
+
+if  (comment.author === botID)
 {
     console.log('self trigger!');
 }
@@ -44,6 +45,7 @@ else{
         comment.reply(Squanch(comment.body) + '  -  Squanch Bot');
         ReplyCount++;
         console.log(comment.body);
+        console.log("RedditUser { name: '" + process.env.REDDIT_USER +"' }");
     }
 }
 
